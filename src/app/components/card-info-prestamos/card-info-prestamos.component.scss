@@ -1,0 +1,50 @@
+ion-card {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    margin: 0 !important;
+    margin-top: 15px !important;
+}
+
+ion-card-title{
+    font-size: 20px;
+}
+
+
+
+.text-pays{
+    font-size: 25px;
+}
+
+
+.card-pay-info ion-label{
+  color: white;
+}
+
+.text-blue{
+    color: #4D77FF;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.text-purple2{
+    color: #A63EC5;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+.icon-custom{
+    font-size: 50px;
+    color: #000;
+    font-weight: bold;
+}
+
+.item-toggle-right{
+    margin-left: 74%  !important;
+}
+
+.custom-options [aria-label="COMPLETO, 1) 06/08/2021"]  {
+    color: #79193b;
+  }
+  

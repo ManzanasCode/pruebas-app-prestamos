@@ -1,0 +1,76 @@
+<ion-card class="ion-padding">
+
+  <div class="info">
+    <ion-row>
+      <!--
+        <ion-col size="3" class="ion-text-left">
+        <ion-item class="sin-bordes">
+          <ion-button class="ion-button " size="large" color="primary" shape="round"
+            (click)="presentActionSheet(credito.$key)">
+            <ion-icon class="icon-custom2" name="document-text-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-col>
+      -->
+
+      <ion-col size="6" class="ion-text-left">
+        <ion-text class="text-blue">{{ credito.nombreCliente }}</ion-text>
+        <br>
+        <ion-text>{{ credito.$key }}</ion-text>
+        <br>
+        <ion-button size="small" color="success" (click)="alertWhatsCredit(credito)" ><ion-icon name="logo-whatsapp"></ion-icon> </ion-button>
+        
+      </ion-col>
+      <ion-col size="6" class="ion-text-right ">
+        Día: <ion-text class="text-purple2">{{ credito.diaPago }}</ion-text> <br>
+        Estado: <ion-text>{{ credito.estado }}</ion-text> <br>
+        Fecha entrega: <ion-text class="text-purple2">{{ credito.fechaPrestamo }}</ion-text> <br>
+        Crédito solicitado: <ion-text>{{ credito.montoCredito | currency }}</ion-text> <br>
+        Monto pagos: <ion-text>{{ credito.montoPago | currency }} </ion-text> <br>
+        # de Pagos: <ion-text>{{ credito.pagoActual }} / {{ credito.numeroPagos }} </ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-no-padding">
+      <ion-col size="12" class="ion-text-right">
+        <ion-toggle name="estadoPagos" color="primary" checked="false" (click)="showListPays(credito.$key)">
+        </ion-toggle>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row>
+      <!--
+      <a href="whatsapp://send?text=Hello?phone=2231161688?text=Hello">Link2
+      </a>
+
+      <a href="{{messageWhatsapp}}" id="whatsappLink">Link4</a>
+      -->
+      
+      <ion-col size="6" class="ion-text-left">
+        Monto liquidado: <ion-text class="text-blue">{{ credito.montoLiquidado | currency }}</ion-text>
+      </ion-col>
+      <ion-col size="6" class="ion-text-right">
+        Crédito real: <ion-text class="text-blue">{{ credito.utilidad | currency }}</ion-text>
+      </ion-col>
+    </ion-row>
+
+    <ion-progress-bar type="determinate" value="{{ (credito.pagoActual*10)/160 }} "></ion-progress-bar>
+  </div>
+
+  <!-- -->
+
+  <div class="pagos" *ngIf="credito.flagDetail">
+    <ion-item *ngFor="let pago of listaPagos; let i = index">
+      <ion-label>{{i+1}}) {{pago.fechaPago}} </ion-label>
+      <ion-select [disabled]="pago.estado == 'COMPLETO'" interface="popover" class="custom-options"
+        value="{{pago.estado}}" (ionChange)="changeSelect($event,i)">
+        <ion-select-option value="INCOMPLETO">INCOMPLETO</ion-select-option>
+        <ion-select-option value="PENDIENTE">PENDIENTE</ion-select-option>
+        <ion-select-option class="brown-option" value="COMPLETO">COMPLETO</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+
+
+</ion-card>

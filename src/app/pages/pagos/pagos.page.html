@@ -1,0 +1,154 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="tipoVista == 'vencidos'">Pagos vencidos</ion-title>
+    <ion-title *ngIf="tipoVista == 'hoy'">Pagos del día</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-grid>
+
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <ion-icon class="icono-grande" color="dark" name="calendar-outline"></ion-icon>
+        <h1>{{ fechaActual }} </h1>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-center">
+      <ion-col size="12">
+        <ion-item>
+          <ion-label>Tipo de vista</ion-label>
+          <ion-select (ionChange)="cambioDeVista($event)" [(ngModel)]="tipoVista" interface="action-sheet"
+            cancel-text="Cancelar">
+            <ion-select-option value="vencidos"> Pagos vencidos </ion-select-option>
+            <ion-select-option value="hoy"> Pagos del día </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+    <div *ngIf="tipoVista == 'vencidos'">
+      <div *ngFor="let creditoVencido of listaCreditosVencidos">
+        <app-card-info-prestamos  [credito]="creditoVencido"></app-card-info-prestamos>
+      </div>
+    </div>
+
+    <div *ngIf="tipoVista == 'hoy'">
+      <div *ngFor="let creditoVigente of listaCreditosVigentes">
+        <app-card-info-prestamos  [credito]="creditoVigente"></app-card-info-prestamos>
+      </div>
+    </div>
+
+    <!-- PAGOS VENCIDOS 
+    <div *ngIf="tipoVista == 'vencidos'">
+      <ion-row *ngFor="let creditoVencido of listaCreditosVencidos; let idx = index">
+        <ion-card>
+          <ion-item-sliding #slideCambios>
+            <ion-item>
+              <ion-col size="12" class="ion-text-center">
+                <ion-card-title> {{ creditoVencido.nombreCliente }} <ion-icon color="dark" (click)="showDetail(idx)"
+                    name="chevron-down-outline"></ion-icon>
+                </ion-card-title>
+                <ion-card-subtitle>
+                  ID: <ion-text color="secondary">{{ creditoVencido.$key }}</ion-text>
+                </ion-card-subtitle>
+                <ion-card-subtitle>
+                  Fecha: <ion-text color="primary">{{ creditoVencido.fechaPrestamo }}</ion-text>
+                </ion-card-subtitle>
+                <ion-card-subtitle>
+                  Día de pago: <ion-text color="primary">{{ creditoVencido.diaPago }}</ion-text>
+                </ion-card-subtitle>
+                <ion-card-subtitle>
+                  Monto crédito: <ion-text color="primary">{{ creditoVencido.montoCredito | currency }}</ion-text>
+                </ion-card-subtitle>
+
+
+              </ion-col>
+            </ion-item>
+            <ion-item-options side="end" class="sin-bordes">
+              <ion-item-option color="success" class="item-trans sin-bordes" (click)="showCredits(creditoVencido)">
+                <ion-icon class="icono-grande" name="document-text-outline"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+
+          <div *ngIf="creditoVencido.flagDetail">
+            <ion-card-header class="ion-text-right" *ngFor="let pagos of creditoVencido.listaPagos">
+              <ion-card-subtitle>
+                ID pago: <ion-text color="primary">{{ pagos.id }}</ion-text>
+              </ion-card-subtitle>
+              <ion-card-subtitle>
+                Fecha: <ion-text color="primary">{{ pagos.fechaPago }}</ion-text>
+              </ion-card-subtitle>
+              <ion-card-subtitle>
+                Monto: <ion-text color="primary">{{ pagos.monto | currency }}</ion-text>
+              </ion-card-subtitle>
+              <ion-card-subtitle>
+                Estado: <ion-text color="primary">{{ pagos.estado }}</ion-text>
+              </ion-card-subtitle>
+            </ion-card-header>
+          </div>
+
+
+        </ion-card>
+      </ion-row>
+    </div>
+-->
+    <!-- PAGOS DEL DIA 
+    <div *ngIf="tipoVista == 'hoy'">
+      <ion-row *ngFor="let creditoVencido of listaCreditosVigentes; let idx = index">
+        <ion-card>
+          <ion-item-sliding #slideCambios>
+            <ion-item>
+              <ion-col size="12" class="ion-text-center">
+                <ion-card-title> {{ creditoVencido.nombreCliente }} <ion-icon color="dark" (click)="showDetail(idx)"
+                    name="chevron-down-outline"></ion-icon>
+                </ion-card-title>
+                <ion-card-subtitle>
+                  ID: <ion-text color="secondary">{{ creditoVencido.$key }}</ion-text>
+                </ion-card-subtitle>
+                <ion-card-subtitle>
+                  Fecha: <ion-text color="primary">{{ creditoVencido.fechaPrestamo }}</ion-text>
+                </ion-card-subtitle>
+                <ion-card-subtitle>
+                  Día de pago: <ion-text color="primary">{{ creditoVencido.diaPago }}</ion-text>
+                </ion-card-subtitle>
+                <ion-card-subtitle>
+                  Monto crédito: <ion-text color="primary">{{ creditoVencido.montoCredito | currency }}</ion-text>
+                </ion-card-subtitle>
+
+
+              </ion-col>
+            </ion-item>
+            <ion-item-options side="end" class="sin-bordes">
+              <ion-item-option color="success" class="item-trans sin-bordes" (click)="showCredits(creditoVencido)">
+                <ion-icon class="icono-grande" name="document-text-outline"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+
+          <div *ngIf="creditoVencido.flagDetail" style="display: none;">
+            <ion-card-header class="ion-text-right" *ngFor="let pagos of creditoVencido.listaPagos">
+              <ion-card-subtitle>
+                ID pago: <ion-text color="primary">{{ pagos.id }}</ion-text>
+              </ion-card-subtitle>
+              <ion-card-subtitle>
+                Fecha: <ion-text color="primary">{{ pagos.fechaPago }}</ion-text>
+              </ion-card-subtitle>
+              <ion-card-subtitle>
+                Monto: <ion-text color="primary">{{ pagos.monto | currency }}</ion-text>
+              </ion-card-subtitle>
+              <ion-card-subtitle>
+                Estado: <ion-text color="primary">{{ pagos.estado }}</ion-text>
+              </ion-card-subtitle>
+            </ion-card-header>
+          </div>
+        </ion-card>
+      </ion-row>
+    </div>
+-->
+
+
+  </ion-grid>
+</ion-content>

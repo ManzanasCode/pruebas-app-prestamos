@@ -1,0 +1,29 @@
+<ion-tabs class="ion-no-border sin-bordes" >
+
+
+  
+  <ion-tab-bar slot="bottom" class="sin-bordes ion-no-border" >
+
+    <ion-tab-button *ngIf="!flagEnviroment">
+      DEV
+    </ion-tab-button>
+
+    
+    <ion-tab-button tab="home">
+      <ion-label ><ion-icon class="icon-tab" name="home-outline"></ion-icon></ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="prestamos">
+      <ion-label ><ion-icon class="icon-tab" name="cash-outline"></ion-icon></ion-label>
+    </ion-tab-button>
+    
+    <ion-tab-button tab="clientes">
+      <ion-label ><ion-icon class="icon-tab" name="people-circle-outline"></ion-icon></ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="pagos">
+      <ion-label ><ion-icon class="icon-tab" name="wallet-outline"></ion-icon></ion-label>
+    </ion-tab-button>
+    
+  </ion-tab-bar>
+</ion-tabs>

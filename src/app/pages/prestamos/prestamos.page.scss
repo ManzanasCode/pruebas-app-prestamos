@@ -1,0 +1,54 @@
+ion-card {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    margin: 0 !important;
+    margin-top: 15px !important;
+}
+
+ion-card-title{
+    font-size: 20px;
+}
+
+
+
+.text-pays{
+    font-size: 25px;
+}
+
+
+
+.text-blue{
+    color: #4D77FF;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.text-purple2{
+    color: #A63EC5;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+ion-avatar{
+    width: 60px;
+    height: 60px;
+    border-radius: 0px;
+}
+
+ion-item, ion-list{
+    background: transparent;
+    color: white;
+}
+
+.card-pay-info{
+    color: white;
+}
+
+hr {
+    border-top: 1px solid white;
+  }
+
+  h1,h2,h3{
+    margin: 0px;
+  }

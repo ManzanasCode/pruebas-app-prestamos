@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar class="header-oscuro">
+    <ion-back-button defaultHref="" (click)="closeModal()" text="" color="light" slot="start" mode="ios"
+      class="icon-modal-color">
+    </ion-back-button>
+    <ion-title class="ion-text-center  texto-blanco" style="font-size: 15px;">
+      {{tituloPagina}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+
+    <ion-row>
+      <ion-col size="12" class="ion-text-left" *ngIf="typeScreen == 'create'">
+        Completa la información
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="display: none;">
+      <ion-col size="12" class="ion-text-center">
+        <ion-item class="item-transparent sin-bordes">
+          <ion-avatar class="image-center">
+            <img src="../../../assets/images/user-logo.png">
+          </ion-avatar>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6" push="3" class="ion-text-center">
+        <ion-button size="small" expand="block" color="dark">Cambiar foto</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" class="ion-text-left">
+        <ion-item class="item-transparent">
+          <ion-label position="floating">Nombre completo</ion-label>
+          <ion-input [disabled]="typeScreen == 'read'" [(ngModel)]="newCustomer.nombreCompleto" class="input-azul"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" class="ion-text-left">
+        <ion-item class="item-transparent">
+          <ion-label position="floating">Móvil</ion-label>
+          <ion-input [(ngModel)]="newCustomer.movil" class="input-azul"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    
+
+    <ion-row class="ion-text-left">
+      <ion-col size="12">
+        <ion-item class="item-transparent">
+          <ion-label>Género</ion-label> <br>
+          <ion-select interface="popover" [(ngModel)]="newCustomer.genero">
+            <ion-select-option class="input-azul" value="Masculino"> Masculino</ion-select-option>
+            <ion-select-option class="input-azul" value="Femenino">Femenino</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-left">
+      <ion-col size="12">
+        <ion-item class="item-transparent">
+          <ion-label position="floating">Fecha de nacimiento</ion-label>
+          <ion-datetime class="input-azul" displayFormat="DD/MM/YYYY" min="1930-03-14" max="2020-12-09"
+            value="2021-09-23T15:03:46.789" [(ngModel)]="newCustomer.fecha_nac"></ion-datetime>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="display: none;">
+      <ion-col size="12" class="ion-text-left">
+        <ion-item class="item-transparent">
+          <ion-label position="floating">CURP</ion-label>
+          <ion-input [(ngModel)]="newCustomer.CURP" class="input-azul"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-left" style="display: none;">
+      <ion-col size="6">
+        <ion-item class="item-transparent">
+          <ion-label position="floating">INE 1</ion-label>
+          <br><br>
+          <ion-img src="../../../assets/images/credencial.png"></ion-img>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6">
+        <ion-item class="item-transparent">
+          <ion-label position="floating">INE 2</ion-label>
+          <br><br>
+          <ion-img src="../../../assets/images/credencial.png"></ion-img>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6" push="3" class="ion-text-center">
+        <ion-button size="small" expand="block" color="dark">Cambiar foto</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-text-left">
+      <ion-col size="8" push="2" class="ion-text-center">
+        <ion-button size="small" *ngIf="typeScreen == 'create'" expand="block" color="primary" (click)="addCustomer()">Registar nuevo cliente
+        </ion-button>
+
+        <ion-button size="small" *ngIf="typeScreen == 'read'" expand="block" color="primary" (click)="updateCustomer()">Actualizar cliente
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+
+  </ion-grid>
+</ion-content>

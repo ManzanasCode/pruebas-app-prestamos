@@ -1,0 +1,225 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap");
+
+@font-face {
+  font-family: Rubik;
+  src: url(assets/fonts/Rubik-Italic-VariableFont_wght.ttf) format("truetype");
+  font-style: normal;
+}
+@font-face {
+  font-family: Rubik;
+  src: url(assets/fonts/Rubik-VariableFont_wght.ttf) format("truetype");
+  font-style: normal;
+}
+
+.titulo-brand {
+  font-family: "Open Sans", sans-serif;
+  color: #007bb3;
+  font-size: 29px;
+}
+
+.no-scroll {
+  --overflow: hidden;
+}
+
+.header-oscuro {
+  --background: black;
+  color: #ffffff;
+}
+
+.item-transparent {
+  --background: transparent;
+}
+
+.input-azul {
+  color: #3880ff;
+}
+
+.sin-bordes {
+  border: none;
+  --border-style: none;
+}
+
+.icono-grande {
+  font-size: 30px;
+  color: #042132;
+}
+
+ion-toolbar ion-buttons {
+  padding-right: 25px;
+}
+
+ion-toolbar ion-buttons ion-icon {
+  --color: #042132;
+  color: #042132;
+  font-weight: bold;
+}
+ion-toolbar {
+  --background: #abe6f4;
+  font-weight: bold;
+}
+
+
+ion-tab-bar,
+ion-tab-button {
+  background-color: #042132;
+}
+
+
+
+
+ion-content,
+ion-title,
+ion-item {
+  --color: #042132;
+  color: #042132;
+}
+
+ion-item {
+  background: transparent;
+  --background: transparent;
+}
+
+ion-icon {
+  color: #d7d8da;
+}
+
+ion-content {
+  --background: #200538; /* fallback for old browsers */
+  --background: -webkit-linear-gradient(
+    to bottom,
+    #bdbdbd,
+    #abe6f4
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  --background: linear-gradient(
+    to bottom,
+    #bdbdbd,
+    #abe6f4
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.icono-azul {
+  color: #3880ff;
+}
+
+.text-blue {
+  color: #3880ff;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.icono-verde {
+  color: #2dd36f;
+}
+
+.text-green {
+  color: #2dd36f;
+}
+
+.icono-amarillo {
+  color: #ffc409;
+}
+
+.text-yellow {
+  color: #ffc409;
+}
+
+.text-black {
+  color: #000000;
+}
+
+.text-purple {
+  color: #7900ff;
+}
+
+.cs-color-blue {
+  color: #548cff;
+}
+
+.cs-color-green {
+  color: #93ffd8;
+}
+
+.bg-gray {
+  background: #bdbdbd;
+}
+
+.card-header {
+  background: #00ffbd24;
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(17.5px);
+-webkit-backdrop-filter: blur(17.5px);
+}
+
+
+
+.text-white {
+  color: #ffffff;
+}
+
+.cs-bg {
+  background: #009fff21;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(17.5px);
+  -webkit-backdrop-filter: blur(17.5px);
+  border: 1px solid rgba(0, 159, 255, 1);
+}
+
+
+
+.img-pay{
+  height:50px;
+  width:50px;
+}
+
+
+.sin-bordes {
+  border: none;
+  --border-style: none;
+}
+
+.text-rubik{
+  font-family: 'Rubik', sans-serif;
+  color: white;
+}
+
+.card-pay-info{
+  --background: linear-gradient(to right bottom, #18d3fd, #00c1ff, #00adff, #0097ff, #397ef4);
+}
+
+.card-customer-info{
+  --background: linear-gradient(to right bottom, #57e99f, #52e099, #4ed793, #49ce8d, #45c587);
+}
+
+.bg-trans{
+  background: transparent;
+}

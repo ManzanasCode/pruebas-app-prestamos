@@ -1,0 +1,32 @@
+
+ion-card {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    margin: 0 !important;
+    margin-top: 15px !important;
+}
+
+ion-card-title{
+    font-size: 20px;
+}
+
+ion-label{
+    font-size: 21px !important;
+}
+
+ion-text{
+    font-size: 16px !important;
+}
+
+ion-card-subtitle{
+    font-size: 15px !important;
+}
+
+ion-item, ion-list{
+    background: transparent;
+}
+
+.mt-white{
+    border-top: 1px solid white;
+}

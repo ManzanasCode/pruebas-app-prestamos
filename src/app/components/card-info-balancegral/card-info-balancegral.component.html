@@ -1,0 +1,35 @@
+<ion-card class="ion-padding card-pay-info">
+  <ion-item class="ion-text-center text-pays sin-bordes">
+    <ion-label class="text-rubik">Monto créditos otorgados </ion-label>
+    <img class="img-pay" src="../../../assets/images/pay.png" />
+    <ion-button color="light" fill="outline" slot="end" size="large">
+       {{ 1000 | currency }}
+      </ion-button>
+  </ion-item>
+
+  <ion-item class="ion-text-center text-pays sin-bordes">
+    <ion-label>Monto créditos liquidados </ion-label>
+    <img class="img-pay" src="../../../assets/images/payment-method.png" />
+    <ion-button color="light" fill="outline" slot="end" size="large">
+       {{ totalLiquidacion | currency }}
+      </ion-button>
+  </ion-item>
+
+  <ion-item class="ion-text-center text-pays sin-bordes">
+   
+    <ion-label>Monto créditos por liquidar </ion-label>
+    <img class="img-pay" src="../../../assets/images/target.png" />
+    <ion-button color="warning"  fill="outline" slot="end" size="large">
+       {{ 2000 - 1000 | currency }}
+      </ion-button>
+  </ion-item>
+
+  <ion-item class="ion-text-center text-pays sin-bordes">
+    <ion-label>Caja </ion-label>
+    <img class="img-pay" src="../../../assets/images/cash.png" />
+    
+    <ion-button color="success" fill="outline" slot="end" size="large">
+       {{ 35000 | currency }}
+      </ion-button>
+  </ion-item>
+</ion-card>

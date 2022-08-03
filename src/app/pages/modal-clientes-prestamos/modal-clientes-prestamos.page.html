@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end" (click)="closeModal()">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title class="ion-text-center"> Créditos solicitados </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-grid>
+    
+    <ion-row>
+      <ion-segment (ionChange)="filstrosChange($event)" >
+        <ion-segment-button value="{{ filtro.key }}" *ngFor="let filtro of arrayFilters" >
+          <ion-label>{{ filtro.value }}({{filtro.total}}) </ion-label>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-row>
+    
+    
+    <div *ngFor="let credito of listaCreditos">
+      <app-card-info-prestamos  [credito]="credito"></app-card-info-prestamos>
+    </div>
+    
+
+    <!-- 
+      <ion-row>
+      <ion-col push="2" size="8" class="ion-text-center">
+        <ion-item class="sin-bordes">
+          <ion-label>Filtrar por</ion-label>
+          <ion-select (ionChange)="cambioFiltro($event)" [(ngModel)]="filterCredit" interface="action-sheet" cancel-text="Cancelar">
+            <ion-select-option *ngFor="let filtro of arrayFilters" value="{{ filtro.key }}">{{ filtro.value }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col push="2" size="1" class="ion-text-center">
+        <ion-item class="sin-bordes">
+          <ion-icon class="icono-grande" name="chevron-down-outline"></ion-icon>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    -->
+
+
+  </ion-grid>
+</ion-content>

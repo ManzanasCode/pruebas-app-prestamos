@@ -1,0 +1,126 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end" (click)="newCustomer()">
+      <ion-icon name="add"></ion-icon>
+    </ion-buttons>
+    <ion-title class="ion-text-center"> Clientes </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding ">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        Cartera de clientes (<ion-label color="primary">{{ totalClientes }}</ion-label>)
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <ion-searchbar animated [(ngModel)]="textSearchBar" placeholder="Buscar"></ion-searchbar>
+      </ion-col>
+    </ion-row>
+
+    <ion-card class="card-customer-info" *ngFor="let cliente of listaClientes | pipeCustomers: textSearchBar ">
+
+      <ion-item-sliding #slideCambios>
+
+
+        <ion-item>
+          <ion-avatar slot="start">
+            <img class="img-pay" src="../../../assets/images/woman.png" *ngIf="cliente.genero == 'Femenino' " />
+            <img class="img-pay" src="../../../assets/images/man.png" *ngIf="cliente.genero == 'Masculino' " />
+          </ion-avatar>
+          <ion-label>
+            <ion-card-title class="ion-text-wrap"> {{ cliente.nombreCompleto }} </ion-card-title>
+            <ion-card-subtitle>
+              Total créditos abiertos: <ion-text color="light">{{ cliente.totalCreditos }}</ion-text>
+            </ion-card-subtitle>
+            <ion-card-subtitle class="ion-text-right">
+              <ion-col cols="2">Monto:</ion-col>
+              <ion-col cols="10" >
+                <ion-text color="primary">${{ cliente.extra.montoCredito | currency: 'MXN' : true }}</ion-text>
+              </ion-col>
+            </ion-card-subtitle>
+            <ion-card-subtitle class="ion-text-right">
+              <ion-col cols="2">Liquidado:</ion-col>
+              <ion-col cols="10" >
+                <ion-text color="primary">${{ cliente.extra.montoLiquidado | currency: 'MXN' : true }}</ion-text>
+              </ion-col>
+            </ion-card-subtitle>
+            
+            <ion-card-subtitle class="ion-text-right mt-white" >
+              <ion-col cols="2">Por liquidar:</ion-col>
+              <ion-col cols="10" >
+                <ion-text color="primary">${{ cliente.extra.montoCredito - cliente.extra.montoLiquidado| currency: 'MXN' : true }}</ion-text>
+              </ion-col>
+            </ion-card-subtitle>
+          </ion-label>
+        </ion-item>
+
+        <ion-item-options side="start" class="sin-bordes">
+          <ion-item-option color="danger" class="item-trans sin-bordes" (click)="deleteCustomer(cliente)">
+            <ion-icon class="icono-grande" name="trash-outline"></ion-icon>
+          </ion-item-option>
+          <ion-item-option color="primary" class="item-trans sin-bordes" (click)="editCustomer(cliente)">
+            <ion-icon class="icono-grande" name="create-outline"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+        <ion-item-options side="end" class="sin-bordes">
+          <ion-item-option color="light" class="item-trans sin-bordes" (click)="showCredits(cliente)">
+            <ion-icon class="icono-grande" name="cash-outline"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+
+
+      </ion-item-sliding>
+
+    </ion-card>
+
+    <ion-row *ngFor="let cliente of listaClientes | pipeCustomers: textSearchBar " style="display: none;">
+      <ion-card class="card-customer-info">
+        <ion-item-sliding #slideCambios>
+          <ion-item>
+            <ion-col size="5" class="ion-text-center">
+
+              <img class="img-pay" src="../../../assets/images/woman.png" *ngIf="cliente.genero == 'Femenino' " />
+              <img class="img-pay" src="../../../assets/images/man.png" *ngIf="cliente.genero == 'Masculino' " />
+              <ion-card-title> {{ cliente.nombreCompleto }} </ion-card-title>
+            </ion-col>
+            <ion-col size="7" class="ion-text-center ion-padding">
+
+              <ion-card-header class="ion-text-right text-customer">
+                <ion-card-subtitle>
+                  Total créditos abiertos: <ion-text color="light">{{ cliente.totalCreditos }}</ion-text>
+                </ion-card-subtitle>
+                <ion-card-subtitle>
+                  Monto crédito: <ion-text color="primary">{{ cliente.extra.montoCredito | currency}}</ion-text>
+                </ion-card-subtitle>
+                <ion-card-subtitle>Monto liquidado: <ion-text color="primary">{{ cliente.extra.montoLiquidado |
+                    currency}}</ion-text>
+                </ion-card-subtitle>
+              </ion-card-header>
+            </ion-col>
+
+          </ion-item>
+          <ion-item-options side="start" class="sin-bordes">
+            <ion-item-option color="danger" class="item-trans sin-bordes" (click)="deleteCustomer(cliente)">
+              <ion-icon class="icono-grande" name="trash-outline"></ion-icon>
+            </ion-item-option>
+            <ion-item-option color="primary" class="item-trans sin-bordes" (click)="editCustomer(cliente)">
+              <ion-icon class="icono-grande" name="create-outline"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+          <ion-item-options side="end" class="sin-bordes">
+            <ion-item-option color="light" class="item-trans sin-bordes" (click)="showCredits(cliente)">
+              <ion-icon class="icono-grande" name="cash-outline"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+
+      </ion-card>
+    </ion-row>
+
+
+  </ion-grid>
+</ion-content>

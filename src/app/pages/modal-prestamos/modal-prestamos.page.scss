@@ -1,0 +1,32 @@
+
+ion-card {
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    margin: 0 !important;
+    margin-top: 15px !important;
+}
+
+ion-card-title{
+    font-size: 20px;
+}
+
+.card-pagos-pendientes{
+    border-color: red;
+}
+
+.icono-amarillo{
+    color: #ffc409;
+}
+
+.icono-verde{
+    color: #2dd36f;
+}
+
+.icono-rojo{
+    color: #eb445a;
+}
+
+h2,h5 {
+    color: #3880ff;
+}

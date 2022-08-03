@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Financiera del Bienestar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    
+    <ion-card class="ion-text-center login-view ion-padding bg-white">
+      <img class="img-logo" src="../../../assets/icons/brand-logo.png" />
+      <ion-card-header>
+        <ion-card-subtitle>Ingresa tus credenciales</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row>
+          <ion-col size="12">
+            <ion-input [(ngModel)]="usuario" type="text" placeholder="Ususario"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-input [(ngModel)]="clave" type="password" placeholder="Contraseña"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-button  color="dark" shape="round" 
+        fill="outline"
+        (click)="login()">Iniciar Sesión</ion-button>
+        <!--
+        <ion-button  color="dark" shape="round" 
+        fill="outline"
+        [disabled]="usuario.length == 0 || clave.length == 0"
+        (click)="login()">Iniciar Sesión</ion-button>
+        -->
+
+
+      </ion-card-content>
+    </ion-card>
+
+    <ion-footer>
+      <ion-toolbar class="ion-text-right">
+        <p>Developed by ManznasCode: V1.4.04</p>
+      </ion-toolbar>
+    </ion-footer>
+  </ion-grid>
+</ion-content>
